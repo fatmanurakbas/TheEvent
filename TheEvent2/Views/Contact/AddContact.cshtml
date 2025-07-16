@@ -1,0 +1,58 @@
+﻿@model TheEvent.DAL.Entities.Contact
+
+@{
+    ViewData["Title"] = "AddContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> İletişim Ekleme Sayfası </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Ekleme İşlemi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">İletişim</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        <label>Adres</label>
+                        <input asp-for="Address" class="form-control" />
+                        <br />
+
+                        <label>Telefon</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <br />
+
+                        <label>Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <br />
+
+                        <label>Konu</label>
+                        <input asp-for="Subject" class="form-control" />
+                        <br />
+
+                        <label>Okundu Bilgisi</label>
+                        <input asp-for="IsRead" class="form-control" />
+                        <br />
+
+                        <label>Gönderildi</label>
+                        <input asp-for="SendDate" class="form-control" />
+                        <br />
+
+                        <button class="btn btn-primary">
+                            <i class="fa fa-save"></i> Kaydet
+                        </button>
+                        <a href="/Contact/Index" class="btn btn-light">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

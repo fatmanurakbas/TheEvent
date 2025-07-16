@@ -1,0 +1,31 @@
+﻿@model TheEvent.DAL.Entities.Message
+
+@{
+    ViewData["Title"] = "AddMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <h3>Bize Ulaşın</h3>
+    <form method="post">
+        <label>Ad Soyad</label>
+        <input asp-for="Name" class="form-control" required />
+        <br />
+
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" type="email" required />
+        <br />
+
+        <label>Konu</label>
+        <input asp-for="Subject" class="form-control" required />
+        <br />
+
+        <label>Mesaj</label>
+        <textarea asp-for="Description" class="form-control" rows="5" required></textarea>
+        <br />
+
+        <button class="btn btn-success">Gönder</button>
+        <a href="/Message/Index" class="btn btn-light">İptal</a>
+
+    </form>
+</div>

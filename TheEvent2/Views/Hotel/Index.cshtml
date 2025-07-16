@@ -1,0 +1,153 @@
+﻿@model List<TheEvent.DAL.Entities.Hotel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+<style>
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: none;
+    }
+
+    .table thead {
+        background-color: #f7f7f7;
+        color: #333;
+        font-weight: 600;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .table td, .table th {
+        vertical-align: middle !important;
+    }
+
+    .btn-update {
+        background-color: #e6f0ff;
+        color: #007bff;
+        border: 1px solid #cce0ff;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+        .btn-update:hover {
+            background-color: #d4e8ff;
+        }
+
+    .btn-delete {
+        background-color: #ffe6e6;
+        color: #dc3545;
+        border: 1px solid #f5b4b4;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+        .btn-delete:hover {
+            background-color: #ffdddd;
+        }
+
+    .img-rounded {
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> ⚙️ Otel Tablosu </h3>
+        <a href="/Hotel/AddHotel" class="btn btn-gradient-success">
+            <i class="fa fa-plus-circle"></i> ➕ Yeni Otel Ekle
+        </a>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">📋 Tablo</a></li>
+                <li class="breadcrumb-item active" aria-current="page">📚 Otel</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#️⃣</th>
+                                <th>🔖 Açıklama</th>
+                                <th>📝 Başlık</th>
+                                <th>🖼️ Görsel</th>
+                                <th>🖼️ Değerlendirme</th>
+
+                                <th>✏️ Güncelle</th>
+                                <th>🗑️ Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Title</td>
+                                    <td>
+                                        <img src="@item.ImageUrl" class="img-rounded" alt="görsel" />
+                                    </td>
+                                    <td>@item.raiting</td>
+
+                                    <td>
+                                        <a href="/Hotel/UpdateHotel/@item.HotelId" class="btn btn-update">
+                                            ✏️ Güncelle
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a onclick="DeleteHotel(@item.HotelId)" class="btn btn-delete">
+                                            🗑️ Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function DeleteHotel(id) {
+        Swal.fire({
+            title: "Silmek istediğinizden emin misiniz?",
+            text: "Bu işlemi geri alamazsınız!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, Sil!",
+            cancelButtonText: "İptal"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Hotel/DeleteHotel/" + id;
+            }
+        });
+    }
+</script>

@@ -1,0 +1,51 @@
+﻿@model TheEvent.DAL.Entities.Ticket
+
+@{
+    ViewData["Title"] = "UpdateTicket";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Bilet Güncelleme Sayfası </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Güncelleme İşlemi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Bilet</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" asp-for="TicketId" />
+
+                        <label>Başlık</label>
+                        <input asp-for="Title" class="form-control" />
+                        <br />
+
+                        <label>Ücret</label>
+                        <input asp-for="Price" class="form-control" />
+                        <br />
+
+                        <label>Özellik</label>
+                        <input asp-for="Status" class="form-control" />
+                        <br />
+
+                        <label>Açıklama</label>
+                        <input asp-for="Description" class="form-control" />
+                        <br />
+
+                        <button class="btn btn-primary">
+                            <i class="fa fa-save"></i>✏️ Güncelle
+                        </button>
+                        <a href="/Ticket/Index" class="btn btn-light">🗑️ İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

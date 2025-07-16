@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateVenue";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>UpdateVenue</h1>
+
+@model TheEvent.DAL.Entities.Venue
+
+@{
+    ViewData["Title"] = "UpdateHotel";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Mekan Güncelleme </h3>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="VenueId" />
+                        <input type="hidden" asp-for="ImageUrl" />
+
+                        <label>Alt Başlık</label>
+                        <input asp-for="Description" class="form-control" />
+                        <br />
+
+                        <label>Başlık</label>
+                        <input asp-for="Title" class="form-control" />
+                        <br />
+
+                        <label>Mevcut Görsel</label><br />
+                        <img src="@Model.ImageUrl" style="width:120px;" class="img-thumbnail" />
+                        <br /><br />
+
+                        <label>Yeni Görsel Seç (Opsiyonel)</label>
+                        <input type="file" asp-for="ImageFile" class="form-control" />
+                        <br />
+
+                        <button class="btn btn-primary">
+                            <i class="fa fa-save"></i> Güncelle
+                        </button>
+                        <a href="/Venue/Index" class="btn btn-light">İptal</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

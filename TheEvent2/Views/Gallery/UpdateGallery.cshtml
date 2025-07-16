@@ -1,0 +1,47 @@
+﻿@model TheEvent.DAL.Entities.Gallery
+
+@{
+    ViewData["Title"] = "UpdateGallery";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title"> Galeri Güncelleme Sayfası </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Güncelleme İşlemi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Galeri</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="GalleryId" />
+
+                        <label>Mevcut Görsel</label><br />
+                        <img src="@Model.ImageUrl" style="height:75px;width:75px" />
+                        <br /><br />
+
+                        <label>Yeni Görsel Seç (Opsiyonel)</label>
+                        <input type="file" asp-for="ImageFile" class="form-control" />
+                        <br />
+
+                        <input type="hidden" asp-for="ImageUrl" />
+
+                        <button class="btn btn-primary">
+                            <i class="fa fa-save"></i> Güncelle
+                        </button>
+                        <a href="/Gallery/Index" class="btn btn-light">İptal</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

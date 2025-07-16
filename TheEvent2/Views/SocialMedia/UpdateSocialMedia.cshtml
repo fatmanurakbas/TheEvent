@@ -1,0 +1,28 @@
+﻿@model TheEvent.DAL.Entities.SocialMedia
+
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <h3 class="page-title"> Sosyal Medya Hesabını Güncelle </h3>
+    <form method="post">
+        <input type="hidden" asp-for="SocialMediaId" />
+
+        <label>Platform Adı</label>
+        <input asp-for="Title" class="form-control" />
+        <br />
+
+        <label>Bağlantı URL</label>
+        <input asp-for="Url" class="form-control" />
+        <br />
+
+        <label>İkon</label>
+        <input asp-for="Icon" class="form-control" />
+        <br />
+
+        <button class="btn btn-success">Güncelle</button>
+    </form>
+</div>

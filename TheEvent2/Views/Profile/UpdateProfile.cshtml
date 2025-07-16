@@ -1,0 +1,32 @@
+﻿@model TheEvent.DAL.Entities.Profile
+@{
+    ViewData["Title"] = "Profil Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <h3 class="page-title"> Profili Güncelle </h3>
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ProfileId" />
+        <input type="hidden" asp-for="ImageUrl" />
+
+        <label>Ad</label>
+        <input asp-for="Name" class="form-control" />
+        <br />
+
+        <label>Soyad</label>
+        <input asp-for="SurName" class="form-control" />
+        <br />
+
+        <label>Email</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <br />
+
+        <label>Profil Fotoğrafı (Yeni)</label>
+        <input type="file" asp-for="ImageFile" class="form-control" />
+        <br />
+
+        <button class="btn btn-success">Kaydet</button>
+        <a href="/Profile/Index" class="btn btn-light">İptal</a>
+    </form>
+</div>

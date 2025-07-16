@@ -1,0 +1,99 @@
+﻿@model TheEvent.DAL.Entities.Profile
+@{
+    ViewData["Title"] = "Profilim";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+    .profile-card {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #eee;
+    }
+
+    .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .profile-header h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+    .profile-actions a {
+        margin-left: 10px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .profile-info p {
+        margin-bottom: 8px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .profile-info strong {
+        color: #000;
+    }
+
+    .alert-custom {
+        background-color: #fff4e6;
+        color: #c77800;
+        border: 1px solid #ffdd99;
+        border-radius: 10px;
+        padding: 15px;
+    }
+</style>
+
+<div class="content-wrapper">
+    @if (Model != null)
+    {
+        <div class="profile-header mb-4">
+            <h3 class="page-title"> 👤 Profil Bilgilerim</h3>
+            <div class="profile-actions">
+                <a href="/Profile/UpdateProfile/@Model.ProfileId" class="btn btn-update btn-sm">
+                    ✏️ Profili Güncelle
+                </a>
+                <a href="/Profile/ChangePassword/@Model.ProfileId" class="btn btn-warning btn-sm">
+                    🔒 Şifreyi Değiştir
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <img src="@Model.ImageUrl" alt="Profil Resmi" class="profile-img">
+            </div>
+            <div class="col-md-8">
+                <div class="profile-card">
+                    <div class="profile-info">
+                        <p><strong>👤 Kullanıcı Adı:</strong> @Model.UserName</p>
+                        <p><strong>👤 Ad Soyad:</strong> @Model.Name @Model.SurName</p>
+                        <p><strong>📧 Email:</strong> @Model.Email</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-custom mt-4">
+            <strong>⚠️ Profil bilgisi bulunamadı.</strong> Lütfen bir profil oluşturun.
+        </div>
+        <a href="/Profile/AddProfile" class="btn btn-gradient-success mt-3">
+            ➕ Yeni Profil Oluştur
+        </a>
+    }
+</div>

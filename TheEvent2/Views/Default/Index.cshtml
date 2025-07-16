@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body class="index-page">
+
+    @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+
+
+    <main class="main">
+
+        <!-- Hero Section -->
+
+
+        <section id="hero" class="hero section dark-background">
+
+            <img src="~/TheEvent/assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+            @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+
+
+            @await Component.InvokeAsync("_DefaultAboutComponentPartial")
+
+            
+
+        </section>
+        <!-- /Hero Section -->
+
+        <!-- Speakers Section -->
+        @await Component.InvokeAsync("_DefaultSpeakerComponentPartial")
+        <!-- /Speakers Section -->
+
+        <!-- Schedule Section -->
+        @await Component.InvokeAsync("_DefaultScheduleComponentPartial")
+
+        <!-- /Schedule Section -->
+        <!-- Venue Section -->
+        @await Component.InvokeAsync("_DefaultVenueComponentPartial")
+        <!-- /Venue Section -->
+        <!-- Hotels Section -->
+        @await Component.InvokeAsync("_DefaultHotelComponentPartial")
+
+       <!-- /Hotels Section -->
+        <!-- Gallery Section -->
+        @await Component.InvokeAsync("_DefaultGalleryComponentPartial")
+
+        <!-- /Gallery Section -->
+        <!-- Sponsors Section -->
+        @await Component.InvokeAsync("_DefaultSponsorComponentPartial")
+
+        <!-- /Sponsors Section -->
+        <!-- Faq Section -->
+        @await Component.InvokeAsync("_DefaultQuestionComponentPartial")
+
+        <!-- /Faq Section -->
+        <!-- Buy Tickets Section -->
+        @await Component.InvokeAsync("_DefaultTicketComponentPartial")
+
+       <!-- /Buy Tickets Section -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>İletişim</h2>
+                <p>Bizimle istediğiniz Zaman İletişime Geçebilirsiniz.</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                @await Component.InvokeAsync("_DefaultContactComponentPartial")
+
+
+                <div class="row gy-4 mt-1">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div><!-- End Google Maps -->
+                    @await Component.InvokeAsync("_DefaultMessageComponentPartial")
+
+                    <!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
+
+    </main>
+
+    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/TheEvent/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/TheEvent/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/TheEvent/assets/vendor/aos/aos.js"></script>
+    <script src="~/TheEvent/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/TheEvent/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/TheEvent/assets/js/main.js"></script>
+
+</body>
+
+</html>
