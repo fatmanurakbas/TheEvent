@@ -11,40 +11,27 @@
     <div class="container">
 
         <div class="row gy-4">
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100">
-                    <div class="card-img">
-                        <img src="assets/img/hotels-1.jpg" alt="" class="img-fluid">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-img">
+                            <img src="@item.ImageUrl" alt="" class="img-fluid">
+                        </div>
+                        <h3><a href="#" class="stretched-link">@item.Title</a></h3>
+                        <div class="stars">
+                            @for (int i = 0; i < item.raiting; i++)
+                            {
+                                <i class="bi bi-star-fill"></i>
+                            }
+                        </div>
+                        <p>@item.Description</p>
                     </div>
-                    <h3><a href="#" class="stretched-link">Non quibusdam blanditiis</a></h3>
-                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                    <p>0.4 Mile from the Venue</p>
                 </div>
-            </div><!-- End Card Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100">
-                    <div class="card-img">
-                        <img src="assets/img/hotels-2.jpg" alt="" class="img-fluid">
-                    </div>
-                    <h3><a href="#" class="stretched-link">Aspernatur assumenda</a></h3>
-                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                    <p>0.5 Mile from the Venue</p>
-                </div>
-            </div><!-- End Card Item -->
 
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="card h-100">
-                    <div class="card-img">
-                        <img src="assets/img/hotels-3.jpg" alt="" class="img-fluid">
-                    </div>
-                    <h3><a href="#" class="stretched-link">Dolores ut ut voluptatibu</a></h3>
-                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                    <p>0.6 Mile from the Venue</p>
-                </div>
-            </div><!-- End Card Item -->
-
+                <!-- End Card Item -->
+            }
         </div>
 
     </div>

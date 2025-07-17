@@ -4,8 +4,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Event Schedule<br></h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Etkinlik Akışı<br></h2>
+        <p>Birbirinden değerli konuşmacıların bulunduğu etkinliğimizin programı</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -28,83 +28,23 @@
 
             <!-- Schdule Day 1 -->
             <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-
+              @foreach (var item in Model)
+              {
                 <div class="row schedule-item">
-                    <div class="col-md-2"><time>09:30 AM</time></div>
+                    <div class="col-md-2"><time></time>@item.Time</div>
                     <div class="col-md-10">
-                        <h4>Registration</h4>
-                        <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
+                            <div class="speaker">
+                                <img src="@item.ImageUrl" alt="IMG">
+                            </div>
+                        <h4>@item.Name</h4>
+                        <p>@item.Description</p>
                     </div>
                 </div>
 
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>10:00 AM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-1-2.jpg" alt="Brenden Legros">
-                        </div>
-                        <h4>Keynote <span>Brenden Legros</span></h4>
-                        <p>Facere provident incidunt quos voluptas.</p>
-                    </div>
-                </div>
-
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>11:00 AM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-2-2.jpg" alt="Hubert Hirthe">
-                        </div>
-                        <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                        <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                    </div>
-                </div>
-
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>12:00 AM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-3-2.jpg" alt="Cole Emmerich">
-                        </div>
-                        <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                        <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                    </div>
-                </div>
-
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>02:00 PM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-4-2.jpg" alt="Jack Christiansen">
-                        </div>
-                        <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                        <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                    </div>
-                </div>
-
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>03:00 PM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-5.jpg" alt="Alejandrin Littel">
-                        </div>
-                        <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                        <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                    </div>
-                </div>
-
-                <div class="row schedule-item">
-                    <div class="col-md-2"><time>04:00 PM</time></div>
-                    <div class="col-md-10">
-                        <div class="speaker">
-                            <img src="~/TheEvent/assets/img/speakers/speaker-6.jpg" alt="Willow Trantow">
-                        </div>
-                        <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                        <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                    </div>
-                </div>
+              }  
 
             </div><!-- End Schdule Day 1 -->
-            <!-- Schdule Day 2 -->
+            <!-- Schdule Day 2 
             <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
 
                 <div class="row schedule-item">
@@ -173,8 +113,8 @@
                     </div>
                 </div>
 
-            </div><!-- End Schdule Day 2 -->
-            <!-- Schdule Day 3 -->
+            </div> End Schdule Day 2 
+             Schdule Day 3 
             <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
 
                 <div class="row schedule-item">
@@ -243,7 +183,7 @@
                     </div>
                 </div>
 
-            </div><!-- End Schdule Day 3 -->
+            </div> End Schdule Day 3 -->
 
         </div>
 

@@ -23,7 +23,7 @@ namespace TheEvent.ViewComponents
 
 
 
-            return View();
+            return View(sosyalMedyaListesi);
         }
     }
 

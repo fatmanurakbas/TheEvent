@@ -17,10 +17,13 @@
 
             <div class="col-lg-6 venue-info">
                 <div class="row justify-content-center">
+                  @foreach (var venue in Model)
+                  {
                     <div class="col-11 col-lg-8 position-relative">
-                        <h3>Downtown Conference Center, New York</h3>
-                        <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
+                        <h3>@venue.Title</h3>
+                        <p>@venue.Description</p>
                     </div>
+                  }
                 </div>
             </div>
         </div>
@@ -29,72 +32,43 @@
 
     <div class="container-fluid venue-gallery-container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-0">
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-1.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-1.jpg" alt="" class="img-fluid">
-                    </a>
+            @* Her venue'nin 1 görseli varsa: *@
+            @foreach (var venue in Model)
+            {
+                <div class="col-lg-3 col-md-4">
+                    <div class="venue-gallery">
+                        <a href="@venue.ImageUrl" class="glightbox" data-gall="venue-gallery">
+                            <img src="@venue.ImageUrl" alt="@venue.Title" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-2.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-2.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-3.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-3.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-4.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-4.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-5.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-5.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-6.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-6.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-7.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-7.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="venue-gallery">
-                    <a href="assets/img/venue-gallery/venue-gallery-8.jpg" class="glightbox" data-gall="venue-gallery">
-                        <img src="assets/img/venue-gallery/venue-gallery-8.jpg" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
+            @* Eğer ImageUrl içinde çoklu görsel (örneğin: url1;url2;url3) varsa: *@
+            @* 
+            @foreach (var venue in Model)
+            {
+                if (!string.IsNullOrEmpty(venue.ImageUrl))
+                {
+                    foreach (var image in venue.ImageUrl.Split(';'))
+                    {
+                        <div class="col-lg-3 col-md-4">
+                            <div class="venue-gallery">
+                                <a href="@image" class="glightbox" data-gall="venue-gallery">
+                                    <img src="@image" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            *@
         </div>
     </div>
 
 </section>
+
+
+
+   
+

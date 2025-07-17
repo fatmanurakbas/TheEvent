@@ -3,6 +3,7 @@
 using TheEvent.Context;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheEvent.ViewComponents
 {
@@ -17,14 +18,13 @@ namespace TheEvent.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            // Veritabanındaki tüm Gallery kayıtlarını çek
+            // Veritabanındaki tüm About kayıtlarını çek
             var values = _context.Abouts.ToList();
             // context'i kullanarak veri çek
-            return View();
+            return View(values);
         }
     }
 }
-
 
 
 

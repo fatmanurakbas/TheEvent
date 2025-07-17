@@ -15,55 +15,70 @@ namespace TheEvent.Controllers
             _ticketRepository = ticketRepository;
         }
 
+        // Tüm biletleri listele
         public IActionResult Index()
         {
-            var values = _ticketRepository.GetAll();
-            return View(values);
+            var tickets = _ticketRepository.GetAll();
+            return View(tickets);
         }
 
+        // Yeni bilet ekleme sayfası (GET)
         [HttpGet]
         public IActionResult AddTicket()
         {
             return View();
         }
 
+        // Yeni bilet ekleme işlemi (POST)
         [HttpPost]
         public IActionResult AddTicket(Ticket model)
         {
             if (!ModelState.IsValid)
+            {
                 return View(model);
+            }
 
             _ticketRepository.Add(model);
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
+        // Bilet güncelleme sayfası (GET)
         [HttpGet]
         public IActionResult UpdateTicket(int id)
         {
             var ticket = _ticketRepository.GetById(id);
+            if (ticket == null)
+            {
+                return NotFound();
+            }
+
             return View(ticket);
         }
 
+        // Bilet güncelleme işlemi (POST)
         [HttpPost]
         public IActionResult UpdateTicket(Ticket model)
         {
             if (!ModelState.IsValid)
+            {
                 return View(model);
+            }
 
             _ticketRepository.Update(model);
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
+        // Bilet silme işlemi
         public IActionResult DeleteTicket(int id)
         {
             var ticket = _ticketRepository.GetById(id);
-            if (ticket != null)
+            if (ticket == null)
             {
-                _ticketRepository.Delete(ticket);
-                return RedirectToAction("Index");
+                return NotFound();
             }
 
-            return NotFound();
+            _ticketRepository.Delete(ticket);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

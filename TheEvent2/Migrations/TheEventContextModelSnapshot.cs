@@ -310,8 +310,8 @@ namespace TheEvent.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -391,6 +391,15 @@ namespace TheEvent.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Feature1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Feature2")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Feature3")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");

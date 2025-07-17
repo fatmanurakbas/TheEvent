@@ -9,7 +9,7 @@ namespace TheEvent.ViewComponents
 {
     public class _DefaultContactComponentPartial : ViewComponent
     {
-        //CafeContext Db=new CafeContext();
+        
 
         private readonly TheEventContext _context;
 

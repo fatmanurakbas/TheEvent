@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace AcunMedya.Cafe.ViewComponents
+namespace TheEvent.DAL.ViewComponents
 {
     public class _DefaultGalleryComponentPartial : ViewComponent
     {

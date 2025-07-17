@@ -10,7 +10,8 @@ namespace TheEvent.DAL.Entities
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? ImageUrl { get; set; }
-        public DateTime Time { get; set; }
+        public TimeSpan Time { get; set; }
+
 
         [NotMapped]
         public IFormFile? ImageFile { get; set; } // görsel yükleme

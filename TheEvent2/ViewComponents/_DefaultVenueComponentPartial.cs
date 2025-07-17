@@ -3,14 +3,14 @@
 using TheEvent.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TheEvent.DAL.Entities;
+
 
 
 namespace TheEvent.ViewComponents
 {
     public class _DefaultVenueComponentPartial : ViewComponent
     {
-        //CafeContext Db=new CafeContext();
-
         private readonly TheEventContext _context;
 
         public _DefaultVenueComponentPartial(TheEventContext context)
@@ -18,13 +18,14 @@ namespace TheEvent.ViewComponents
             _context = context;
         }
 
-        //constructor
-
         public IViewComponentResult Invoke()
         {
-            //Eager Loading 
-            var values = _context.Venues.ToList();
-            return View(values);
+            var venues = _context.Venues.ToList(); // Bu yeterli
+           
+            return View(venues);
+
+
+            
         }
     }
 }

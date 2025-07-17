@@ -19,6 +19,7 @@ builder.Services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
 builder.Services.AddScoped<ISponsorRepository, SponsorRepository>();
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IVenueRepository, VenueRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 // 📌 1) DbContext DI Container'a ekleniyor
 builder.Services.AddDbContext<TheEventContext>(options =>

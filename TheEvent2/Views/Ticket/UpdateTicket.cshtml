@@ -35,6 +35,28 @@
                         <input asp-for="Status" class="form-control" />
                         <br />
 
+                        <div class="form-group">
+                            <label for="Status">Paket Türü:</label>
+                            <select asp-for="Status" class="form-control" id="statusSelect">
+                                <option value="">-- Seçiniz --</option>
+                                <option value="Standart">Standart</option>
+                                <option value="Premium">Premium</option>
+                                <option value="Pro">Pro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><input type="checkbox" asp-for="Feature1" /> Ücretsiz İçecek</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label><input type="checkbox" asp-for="Feature2" /> VIP Giriş</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label><input type="checkbox" asp-for="Feature3" />Ön Sıra Koltuk</label>
+                        </div>
+
                         <label>Açıklama</label>
                         <input asp-for="Description" class="form-control" />
                         <br />

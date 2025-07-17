@@ -1,0 +1,29 @@
+﻿@model List<TheEvent.DAL.Entities.Message>
+
+<h2>Gelen Mesajlar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model)
+        {
+            <tr>
+                <td>@message.Name</td>
+                <td>@message.Email</td>
+                <td>@message.Subject</td>
+                <td>@message.Description</td>
+                <td>@message.SendDate.ToString("g")</td>
+                <td>@(message.IsRead ? "Okundu" : "Okunmadı")</td>
+            </tr>
+        }
+    </tbody>
+</table>

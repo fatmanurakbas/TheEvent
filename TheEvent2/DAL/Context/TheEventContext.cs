@@ -37,6 +37,8 @@ namespace TheEvent.Context
         public DbSet<NavbarViewModel> NavbarViewModels { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+       
+
 
     }
 }

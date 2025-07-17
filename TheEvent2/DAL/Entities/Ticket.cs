@@ -10,6 +10,9 @@ namespace TheEvent.DAL.Entities
         public string? Price { get; set; }
         public string? Status { get; set; }
         public string? Description { get; set; }
-
+        public bool Feature1 { get; set; }
+        public bool Feature2 { get; set; }
+        public bool Feature3 { get; set; }
     }
 }
+

@@ -21,9 +21,15 @@ namespace TheEvent.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            //Eager Loading 
-            var values = _context.Features.ToList();
-            return View(values);
+            var feature = _context.Features.FirstOrDefault();
+            if (feature != null)
+            {
+                ViewBag.Subtitle = feature.SubTitle;
+                ViewBag.Title = feature.Title;
+                ViewBag.ImageUrl = feature.ImageUrl;
+               
+            }
+            return View();
         }
     }
 }
