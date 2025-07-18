@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AcunMedya.Cafe.Controllers
+
+namespace TheEvent.Controllers
 {
     public class DefaultController : Controller
     {

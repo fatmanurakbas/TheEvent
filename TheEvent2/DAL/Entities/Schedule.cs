@@ -15,5 +15,8 @@ namespace TheEvent.DAL.Entities
 
         [NotMapped]
         public IFormFile? ImageFile { get; set; } // görsel yükleme
+
+        // 📌 Eklenmesi gereken özellik
+        public int Day { get; set; } // 1, 2, 3 şeklinde
     }
 }

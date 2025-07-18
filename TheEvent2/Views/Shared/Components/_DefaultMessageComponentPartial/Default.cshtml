@@ -23,8 +23,7 @@
             </div>
 
             <div class="col-md-12 text-center">
-                <div class="loading">Gönderiliyor</div>
-                <div class="error-message"></div>
+               
                 <div class="sent-message">Mesajınız Gönderilmiştir!</div>
 
                 <button type="submit">Gönder</button>
@@ -34,3 +33,25 @@
     </form>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(".php-email-form").submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "/Message/AddMessage",
+            data: $(this).serialize(),
+            success: function () {
+                $(".sent-message").show();
+                $(".error-message").hide();
+                $(".loading").hide();
+            },
+            error: function () {
+                $(".error-message").show().text("Mesaj gönderilirken hata oluştu.");
+                $(".sent-message").hide();
+                $(".loading").hide();
+            }
+        });
+    });
+</script>

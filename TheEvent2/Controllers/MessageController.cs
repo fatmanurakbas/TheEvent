@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using TheEvent.DAL.Entities;
 using TheEvent.DAL.Interfaces;
 
@@ -49,13 +50,18 @@ namespace TheEvent.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public IActionResult AddMessage(Message message)
         {
             message.IsRead = false;
             message.SendDate = DateTime.Now;
 
             _messageRepository.Add(message);
-            return RedirectToAction("Index");
+
+            return Json(new { success = true });
         }
+
+
     }
 }

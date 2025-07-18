@@ -103,8 +103,16 @@
                                 count++;
                                 <tr>
                                     <td>@count</td>
-                                    <td>@item.Title</td>
-                                    <td>@item.Description</td>
+                                    <td style="max-width: 300px; white-space: normal;">
+                                        <div style="word-wrap: break-word;">
+                                            @item.Title
+                                        </div>
+                                    </td>
+                                    <td style="max-width: 300px; white-space: normal;">
+                                        <div style="word-wrap: break-word;">
+                                            @item.Description
+                                        </div>
+                                    </td>
                                     <td>
                                         <a href="/Question/QuestionFeature/@item.QuestionId" class="btn btn-update">
                                             ✏️ Güncelle
